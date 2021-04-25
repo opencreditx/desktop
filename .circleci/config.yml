@@ -7,27 +7,27 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Update NPM
-          command: "sudo npm install -g npm"
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-      - run:
-          name: Install Dependencies
-          command: npm install
-      - run:
           name: Install dpkg and fakeroot
           command: |
             sudo apt-get update -y
             sudo apt-get install -y dpkg fakeroot
+      - run:
+          name: Install yarn
+          command: "curl -o- -L https://yarnpkg.com/install.sh | bash"
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Install Dependencies
+          command: yarn
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
       - run:
           name: Generate Builds
-          command: npm run make
+          command: yarn make
       - run:
           name: Publish Builds
-          command: npm run publish
+          command: yarn publish
       - store_artifacts:
           path: ~/repo/out/make
