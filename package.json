@@ -47,15 +47,12 @@
       ],
       "publishers": [
         {
-            "name": "@electron-forge/publisher-github",
+            "name": "@electron-forge/publisher-s3",
             "config": {
-              "repository": {
-                "owner": "opencreditx",
-                "name": "desktop"
-              },
-              "prerelease": true
+              "bucket": "ocx-desktop-app",
+              "public": true
             }
-          }
+        }
       ],
       "plugins": [
         [
