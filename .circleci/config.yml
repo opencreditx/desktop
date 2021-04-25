@@ -9,6 +9,9 @@ jobs:
       - run:
           name: Update NPM
           command: "sudo npm install -g npm"
+      -run:
+          name: Install rpm
+          command: "sudo yum install rpm"
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
