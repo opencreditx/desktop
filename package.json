@@ -2,7 +2,7 @@
   "name": "desktop",
   "productName": "desktop",
   "version": "1.0.1",
-  "description": "My Electron application description",
+  "description": "OpenCreditX desktop application",
   "main": ".webpack/main",
   "scripts": {
     "start": "electron-forge start",
