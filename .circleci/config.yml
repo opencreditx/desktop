@@ -28,6 +28,6 @@ jobs:
           command: yarn make
       - run:
           name: Publish Builds
-          command: yarn publish
+          command: ~/home/repo/node_modules/.bin/electron-forge publish
       - store_artifacts:
           path: ~/repo/out/make
