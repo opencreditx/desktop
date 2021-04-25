@@ -9,7 +9,7 @@ jobs:
       - run:
           name: Update NPM
           command: "sudo npm install -g npm"
-      -run:
+      - run:
           name: Install rpm
           command: "sudo yum install rpm"
       - restore_cache:
