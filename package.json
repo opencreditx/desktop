@@ -47,10 +47,20 @@
       ],
       "publishers": [
         {
-            "name": "@electron-forge/publisher-s3",
+          "name": "@electron-forge/publisher-s3",
+          "config": {
+            "bucket": "ocx-desktop-app",
+            "public": true
+          }
+        },
+        {
+            "name": "@electron-forge/publisher-github",
             "config": {
-              "bucket": "ocx-desktop-app",
-              "public": true
+                "repository": {
+                    "owner": "opencreditx",
+                    "name": "desktop"
+                },
+                "prerelease": true
             }
         }
       ],
@@ -81,8 +91,8 @@
     "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
     "@electron-forge/maker-zip": "^6.0.0-beta.54",
     "@electron-forge/plugin-webpack": "6.0.0-beta.54",
-    "@electron-forge/publisher-s3": "^6.0.0-beta.54",
     "@electron-forge/publisher-github": "^6.0.0-beta.54",
+    "@electron-forge/publisher-s3": "^6.0.0-beta.54",
     "@marshallofsound/webpack-asset-relocator-loader": "^0.5.0",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
@@ -99,6 +109,7 @@
     "typescript": "^4.0.2"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.4",
     "electron-squirrel-startup": "^1.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
